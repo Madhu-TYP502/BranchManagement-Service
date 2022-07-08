@@ -13,7 +13,7 @@ public class BranchEntity implements Serializable {
 	private static final long serialVersionUID = -4088660376879293980L;
 
 	@Id
-	private long id;
+	private String id;
 
 	@NonNull
 	private String branchName;
@@ -44,11 +44,11 @@ public class BranchEntity implements Serializable {
 		this.supervisorID = supervisorID;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

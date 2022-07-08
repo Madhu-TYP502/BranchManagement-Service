@@ -11,4 +11,6 @@ import com.tyss.dashboard.branch.mng.entities.BranchEntity;
 public interface BranchRepository extends MongoRepository<BranchEntity,String> {
 
 	public List<BranchEntity> findAllByCity(String city);
+	public BranchEntity findByBranchName(String branchName);
+	
 }

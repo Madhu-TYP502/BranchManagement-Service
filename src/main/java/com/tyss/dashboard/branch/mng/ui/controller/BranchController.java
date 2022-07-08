@@ -32,32 +32,32 @@ public class BranchController {
 		mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 	}
 
-	@PostMapping("create")
-	public ResponseEntity<String> createBatch(@RequestBody BranchDto branchDto) {
+	@PostMapping("add")
+	public ResponseEntity<BranchEntity> createBatch(@RequestBody BranchDto branchDto) {
 		return branchServicesImpl.addBranch(mapper.map(branchDto, BranchEntity.class));
 	}
 
-	@GetMapping("get/")
+	@GetMapping("get")
 	public ResponseEntity<BranchEntity> viewBranch(@RequestParam String branchName, String city, String type) {
 
-		return branchServicesImpl.viewBranch(branchName, city, type);
+		return branchServicesImpl.viewBranch(branchName);
 	}
 
-	@GetMapping("get/all/")
+	@GetMapping("get/all")
 	public ResponseEntity<List<BranchEntity>> viewAllBranch() {
 
 		return branchServicesImpl.viewAllBranches();
 	}
 
-	@GetMapping("get/city/")
+	@GetMapping("get/all/city")
 	public ResponseEntity<List<BranchEntity>> viewAllBranchByCity(@RequestParam String city) {
 
 		return branchServicesImpl.viewBranchesByCity(city);
 	}
 
-	@DeleteMapping("delete/")
-	public ResponseEntity<String> deleteBranch(@RequestBody BranchDto branchDto) {
+	@DeleteMapping("delete")
+	public ResponseEntity<String> deleteBranch(@RequestParam String branchID) {
 
-		return branchServicesImpl.deleteBranch(branchDto);
+		return branchServicesImpl.deleteBranch(branchID);
 	}
 }
